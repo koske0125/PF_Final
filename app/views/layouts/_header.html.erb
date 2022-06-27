@@ -39,7 +39,8 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownuser">
             <li><%= link_to "プロフィール", public_user_path(current_user), class: "dropdown-item" %></li>
-            <li><%= link_to "フォロー・フォロワー一覧", "#", class: "dropdown-item" %></li>
+            <li><%= link_to "フォロー一覧", followings_public_user_path(current_user), class: "dropdown-item" %></li>
+            <li><%= link_to "フォロワー一覧", followers_public_user_path(current_user), class: "dropdown-item" %></li>
             <li><%= link_to "ダイレクトメッセージ", "#", class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
