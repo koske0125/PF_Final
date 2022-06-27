@@ -5,6 +5,22 @@ ja:
         closed: "非公開"
         limited: "相互フォローにのみ公開"
         opened: "全体に公開"
+    friend:
+      rank:
+        unrank: "アンランク"
+        iron: "アイアン"
+        bronze: "ブロンズ"
+        silver: "シルバー"
+        gold: "ゴールド"
+        platinum: "プラチナ"
+        diamond: "ダイアモンド"
+        master: "マスター"
+        grandmaster: "グランドマスター"
+        challenger: "チャレンジャー"
+      vc_status:
+        unavailable: "VC不可"
+        listening_only: "聴き専"
+        available: "VC可能"
   errors:
     format: "%{attribute}%{message}"
     messages:
