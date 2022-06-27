@@ -5,6 +5,17 @@
     <table class="table text-center">
 
       <tr>
+        <td>プロフィール画像</td>
+        <td>
+          <% if @user.profile_image.attached? %>
+            <%= image_tag @user.profile_image, size: "64x64", class: "rounded-circle" %>
+          <% else %>
+            <%= image_tag asset_path("no_image.jpg"), size: "64x64", class: "rounded-circle" %>
+          <% end %>
+        </td>
+      </tr>
+
+      <tr>
         <td>ユーザー名</td>
         <td><%= @user.name %></td>
       </tr>
