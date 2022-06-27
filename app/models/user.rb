@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :friends
+
   has_one_attached :profile_image
 
   enum is_published: { closed: 0, limited: 1, opened: 2 }
