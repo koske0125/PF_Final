@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   #ユーザー側のルーティング
   namespace :public, path: "" do
     get '/' => 'friends#index'
+    resources :direct_messages, only: [:show]
+    resources :messages, only: [:create]
+    resources :rooms, only: [:create, :index, :show]
     resources :friends, only: [:index, :edit, :update, :destroy, :new, :create, :show]
     resources :users, only: [:show, :edit, :update] do
       collection do
