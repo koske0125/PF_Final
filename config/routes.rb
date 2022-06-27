@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   #ユーザー側のルーティング
   namespace :public, path: "" do
     get '/' => 'homes#top'
-    resources :friends
+    resources :friends, only: [:index, :edit, :update, :destroy, :new, :create] do
+      collection do
+        get 'search'
+      end
+    end
     resources :users, only: [:show, :edit, :update] do
       collection do
         get 'withdraw'

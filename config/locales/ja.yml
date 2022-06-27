@@ -6,7 +6,7 @@ ja:
         limited: "相互フォローにのみ公開"
         opened: "全体に公開"
     friend:
-      rank:
+      ranks:
         unrank: "アンランク"
         iron: "アイアン"
         bronze: "ブロンズ"
@@ -17,7 +17,7 @@ ja:
         master: "マスター"
         grandmaster: "グランドマスター"
         challenger: "チャレンジャー"
-      vc_status:
+      vc_statuses:
         unavailable: "VC不可"
         listening_only: "聴き専"
         available: "VC可能"
