@@ -29,6 +29,16 @@ class Public::UsersController < ApplicationController
     redirect_to public_path, success: "退会処理を実行しました"
   end
 
+  def followings
+    user = User.find(current_user.id)
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(current_user.id)
+    @users = user.followers
+  end
+
 
   private
 
