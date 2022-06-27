@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :profile_image
+
+  enum is_published: { closed: 0, limited: 1, opened: 2 }
 end
