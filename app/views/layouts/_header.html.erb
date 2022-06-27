@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to public_path, class: "navbar-brand" do %><%= image_tag asset_path("logo.png"), size: "32x32", class: "d-inline-block align-text-top me-2" %>LOLフレ<% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "ホーム", public_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">フレンド募集</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "投稿一覧", public_friends_path, class: "dropdown-item" %></li>
+            <li><%= link_to "新規投稿", new_public_friend_path, class: "dropdown-item" %></li>
+            <li><%= link_to "投稿内容の編集・削除", new_public_friend_path, class: "dropdown-item" %></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "コミュニティーボード", public_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "サークル", public_path, class: "nav-link" %>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownuser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if current_user.profile_image.attached? %>
+              <%= image_tag current_user.profile_image, size: "32x32", class: "rounded-circle me-2" %>
+            <% else %>
+              <%= image_tag asset_path("no_image.jpg"), size: "32x32", class: "rounded-circle me-2" %>
+            <% end %>
+            <%= current_user.name %>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownuser">
+            <li><%= link_to "プロフィール", public_user_path(current_user), class: "dropdown-item" %></li>
+            <li><%= link_to "フォロー・フォロワー一覧", "#", class: "dropdown-item" %></li>
+            <li><%= link_to "ダイレクトメッセージ", "#", class: "dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+          </ul>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "サインイン", new_user_session_path, class: "btn btn-outline-light me-2" %>
+          <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-outline-warning" %>
+        </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+</nav>

@@ -9,4 +9,15 @@ Rails.application.routes.draw do
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"}
 
+  #管理者側のルーティング
+  namespace :admin do
+
+  end
+
+  #ユーザー側のルーティング
+  namespace :public, path: "" do
+    get '/' => 'homes#top'
+    resources :friends
+    resources :users
+  end
 end
