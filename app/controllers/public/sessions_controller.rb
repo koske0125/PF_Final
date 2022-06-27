@@ -10,7 +10,7 @@ class Public::SessionsController < Devise::SessionsController
     return if !@user #合致するレコードがなかった場合、メソッドを終了する
     if @user.valid_password?(params[:user][:password]) #取得したレコードのパスワードが入力されたパスワードと一致しているかを判別
       if @user.is_deleted == true
-        redirect_to new_user_registration, danger: "退会済みのユーザーです。再度ご利用の場合は新規登録を行ってください"
+        redirect_to new_user_registration_path, danger: "退会済みのユーザーです。再度ご利用の場合は新規登録を行ってください"
       end
     end
   end

@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   namespace :public, path: "" do
     get '/' => 'homes#top'
     resources :friends
-    resources :users
+    resources :users, only: [:show, :edit, :update] do
+      collection do
+        get 'withdraw'
+      end
+    end
   end
 end

@@ -11,11 +11,22 @@ class Public::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to public_user_path(@user.id), success: "プロフィールを更新しました"
+    if @user = current_user
+      if @user.update(user_params)
+        redirect_to public_user_path(@user.id), success: "プロフィールを更新しました"
+      else
+        render "edit"
+      end
     else
-      render "edit"
+      redirect_to public_path, danger: "不正なアクセスです"
     end
+  end
+
+  def withdraw
+    @user = User.find(current_user.id)
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to public_path, success: "退会処理を実行しました"
   end
 
 

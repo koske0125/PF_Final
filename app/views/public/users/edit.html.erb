@@ -36,7 +36,7 @@
     </div>
 
     <div class="actions text-center">
-      <%= f.submit "プロフィール更新", class: "btn btn-success" %>
+      <%= f.submit "プロフィール更新", class: "btn btn-success me-3" %><%= link_to "退会する", withdraw_public_users_path, class: "btn btn-danger", data: { confirm: "【確認】アカウントを削除してもよろしいですか？" } %>
     </div>
 
     <% end %>
