@@ -1,0 +1,78 @@
+<%= search_form_for @q, url: search_public_friends_path do |f| %>
+    <table class="table">
+      <tr>
+        <th class="text-center">ランク</th>
+        <td><%= f.select :rank_eq, Friend.ranks.keys.map {|k| [I18n.t("enums.friend.ranks.#{k}"), k]}, {include_blank: '指定なし'}, class: "form-select" %></td>
+      </tr>
+      <tr>
+        <th class="text-center">募集目的</th>
+        <td>
+          <%= f.check_box :is_rank_eq,{include_hidden: false}, class: "form-check-input" %>
+          <%= f.label "ランク", class: "form-check-label me-2" %>
+          <%= f.check_box :is_normal_eq,{include_hidden: false}, class: "form-check-input" %>
+          <%= f.label "ノーマル", class: "form-check-label me-2" %>
+          <%= f.check_box :is_beginner_eq,{include_hidden: false}, class: "form-check-input" %>
+          <%= f.label "初心者同士で遊びたい", class: "form-check-label me-2" %>
+          <%= f.check_box :is_coaching_eq,{include_hidden: false}, class: "form-check-input" %>
+          <%= f.label "コーチングをしたい", class: "form-check-label me-2" %>
+          <%= f.check_box :is_coached_eq,{include_hidden: false}, class: "form-check-input" %>
+          <%= f.label "コーチングを受けたい", class: "form-check-label me-2" %>
+          <%= f.check_box :is_clash_eq,{include_hidden: false}, class: "form-check-input" %>
+          <%= f.label "Clashのメンバーを見つけたい", class: "form-check-label" %>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-center">得意なレーン</th>
+        <td>
+          <%= f.check_box :good_at_top, class: "form-check-input" %>
+          <%= f.label "トップ", class: "form-check-label me-2" %>
+          <%= f.check_box :good_at_jg, class: "form-check-input" %>
+          <%= f.label "ジャングル", class: "form-check-label me-2" %>
+          <%= f.check_box :good_at_mid, class: "form-check-input" %>
+          <%= f.label "ミッド", class: "form-check-label me-2" %>
+          <%= f.check_box :good_at_adc, class: "form-check-input" %>
+          <%= f.label "ボットレーン(ADC)", class: "form-check-label me-2" %>
+          <%= f.check_box :good_at_sup, class: "form-check-input" %>
+          <%= f.label "サポート", class: "form-check-label" %>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-center">苦手なレーン</th>
+        <td>
+          <%= f.check_box :bad_at_top, class: "form-check-input" %>
+          <%= f.label "トップ", class: "form-check-label me-2" %>
+          <%= f.check_box :bad_at_jg, class: "form-check-input" %>
+          <%= f.label "ジャングル", class: "form-check-label me-2" %>
+          <%= f.check_box :bad_at_mid, class: "form-check-input" %>
+          <%= f.label "ミッド", class: "form-check-label me-2" %>
+          <%= f.check_box :bad_at_adc, class: "form-check-input" %>
+          <%= f.label "ボットレーン(ADC)", class: "form-check-label me-2" %>
+          <%= f.check_box :bad_at_sup, class: "form-check-input" %>
+          <%= f.label "サポート", class: "form-check-label" %>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-center">ボイスチャット</th>
+        <td>
+          <%= f.radio_button :vc_status, "unavailable", class: "form-check-input" %>
+          <%= f.label "ボイスチャット不可", class: "form-check-label me-2" %>
+          <%= f.radio_button :vc_status, "listening_only", class: "form-check-input" %>
+          <%= f.label "聴き専", class: "form-check-label me-2" %>
+          <%= f.radio_button :vc_status, "available", class: "form-check-input" %>
+          <%= f.label "ボイスチャット可能", class: "form-check-label me-2" %>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-center">利用可能なボイスチャット</th>
+        <td>
+          <%= f.check_box :vc_discord, class: "form-check-input" %>
+          <%= f.label "Discord", class: "form-check-label me-2" %>
+          <%= f.check_box :vc_skype, class: "form-check-input" %>
+          <%= f.label "Skype", class: "form-check-label me-2" %>
+          <%= f.check_box :vc_leaguevoice, class: "form-check-input" %>
+          <%= f.label "リーグボイス", class: "form-check-label" %>
+        </td>
+      </tr>
+    </table>
+    <div class="text-center"><%= f.submit "検索", class: "btn btn-success" %></div>
+    <% end %>

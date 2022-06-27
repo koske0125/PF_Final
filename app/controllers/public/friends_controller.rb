@@ -1,13 +1,33 @@
 class Public::FriendsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :search
 
   def index
-    @friends = @q.result(distinct: true)
+    if params[:search]
+      @search = params[:search]
+      case @search
+      when "is_rank" then
+        @friends = Friend.where(is_rank: true)
+      when "is_normal" then
+        @friends = Friend.where(is_normal: true)
+      when "is_beginner" then
+        @friends = Friend.where(is_beginner: true)
+      when "is_coaching" then
+        @friends = Friend.where(is_coaching: true)
+      when "is_coached" then
+        @friends = Friend.where(is_coached: true)
+      when "is_clash" then
+        @friends = Friend.where(is_clash: true)
+      else
+        @friends = Friend.all
+      end
+    else
+      @friends = Friend.all
+    end
   end
 
   def search
     @q = Friend.ransack(params[:q])
+    @friends = @q.result(distinct: true)
   end
 
   def new
