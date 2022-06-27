@@ -42,7 +42,9 @@ class Public::FriendsController < ApplicationController
   end
 
   def destroy
-
+    @friend = Friend.find_by(user_id: current_user.id)
+    @friend.destroy
+    redirect_to public_friends_path, success: "投稿を削除しました"
   end
 
   private
