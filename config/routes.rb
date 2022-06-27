@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #管理者側のルーティング
   namespace :admin do
     resources :users, only: [:index, :edit, :update]
-
+    resources :friends, only: [:index, :edit, :show, :update, :destroy]
   end
 
   #ユーザー側のルーティング

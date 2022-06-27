@@ -50,7 +50,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownuser" role="button" data-bs-toggle="dropdown" aria-expanded="false">管理者メニュー</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownuser">
             <li><%= link_to "ユーザー一覧", admin_users_path, class: "dropdown-item" %></li>
-            <li><%= link_to "投稿一覧", "#", class: "dropdown-item" %></li>
+            <li><%= link_to "投稿一覧", admin_friends_path, class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "サインアウト", destroy_admin_session_path, method: :delete, class: "dropdown-item" %></li>
           </ul>
