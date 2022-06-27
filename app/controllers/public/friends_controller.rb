@@ -24,6 +24,27 @@ class Public::FriendsController < ApplicationController
     end
   end
 
+  def edit
+    @friend = Friend.find_by(user_id: current_user.id)
+  end
+
+  def show
+
+  end
+
+  def update
+    @friend = Friend.find_by(user_id: current_user.id)
+    if @friend.update(friend_params)
+      redirect_to public_friends_path, success: "更新しました"
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+
+  end
+
   private
 
   def friend_params
