@@ -1,8 +1,13 @@
 class Public::FriendsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :search
 
   def index
+    @friends = @q.result(distinct: true)
+  end
 
+  def search
+    @q = Friend.ransack(params[:q])
   end
 
   def new
