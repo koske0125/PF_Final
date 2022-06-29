@@ -26,7 +26,20 @@
             <table class="table text-center">
               <tr>
                 <th>ランク</th>
-                <td><%= friend.rank_i18n %></td>
+                <td>
+                  <% case friend.rank
+                    when "iron" then %><%= image_tag asset_path("iron.png"), size: "25x25", class: "me-1" %>
+                    <% when "bronze" then %><%= image_tag asset_path("bronze.png"), size: "25x25", class: "me-1" %>
+                    <% when "silver" then %><%= image_tag asset_path("silver.png"), size: "25x25", class: "me-1" %>
+                    <% when "gold" then %><%= image_tag asset_path("gold.png"), size: "25x25", class: "me-1" %>
+                    <% when "platinum" then %><%= image_tag asset_path("platinum.png"), size: "25x25", class: "me-1" %>
+                    <% when "diamond" then %><%= image_tag asset_path("diamond.png"), size: "25x25", class: "me-1" %>
+                    <% when "master" then %><%= image_tag asset_path("master.png"), size: "25x25", class: "me-1" %>
+                    <% when "grandmaster" then %><%= image_tag asset_path("grandmaster.png"), size: "25x25", class: "me-1" %>
+                    <% when "challenger" then %><%= image_tag asset_path("challenger.png"), size: "25x25", class: "me-1" %>
+                  <% end %>
+                  <%= friend.rank_i18n %>
+                </td>
               </tr>
               <tr>
                 <th>好きなチャンピオン</th>
