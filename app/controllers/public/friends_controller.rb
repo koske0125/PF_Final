@@ -2,9 +2,9 @@ class Public::FriendsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    if params[:search]
+    if params[:search] #URLに:searchパラメータが含まれている場合の処理
       @search = params[:search]
-      case @search
+      case @search #:searchパラメータの中身によって場合分け
       when "is_rank" then
         @friends = Friend.where(is_rank: true)
       when "is_normal" then
@@ -54,7 +54,11 @@ class Public::FriendsController < ApplicationController
   end
 
   def show
-    @friend = Friend.find(params[:id])
+    @friend = Friend.find_by(id: params[:id])
+    if @friend
+    else
+      redirect_to public_friends_path, danger: "投稿が削除されています"
+    end
   end
 
   def update
