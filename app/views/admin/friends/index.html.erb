@@ -46,21 +46,21 @@
               <tr>
                 <th>得意なレーン</th>
                 <td>
-                  <% if friend.good_at_top == true %> &#10003;トップレーン　<% end %>
-                  <% if friend.good_at_jg == true %> &#10003;ジャングル　<% end %>
-                  <% if friend.good_at_mid == true %> &#10003;ミッドレーン　<% end %>
-                  <% if friend.good_at_adc == true %> &#10003;ボットレーン(ADC)　<% end %>
-                  <% if friend.good_at_sup == true %> &#10003;サポート<% end %>
+                  <% if friend.good_at_top == true %><%= image_tag asset_path("top.png"), size: "20x20", class: "me-1" %><span class="me-2">TOP</span><% end %>
+                  <% if friend.good_at_jg == true %><%= image_tag asset_path("jg.png"), size: "20x20", class: "me-1" %><span class="me-2">JG</span><% end %>
+                  <% if friend.good_at_mid == true %><%= image_tag asset_path("mid.png"), size: "20x20", class: "me-1" %><span class="me-2">MID</span><% end %>
+                  <% if friend.good_at_adc == true %><%= image_tag asset_path("adc.png"), size: "20x20", class: "me-1" %><span class="me-2">ADC</span><% end %>
+                  <% if friend.good_at_sup == true %><%= image_tag asset_path("sup.png"), size: "24x20", class: "me-1" %><span class="me-2">SUP</span><% end %>
                 </td>
               </tr>
               <tr>
                 <th>苦手なレーン</th>
                 <td>
-                  <% if friend.bad_at_top == true %> &#10003;トップレーン　<% end %>
-                  <% if friend.bad_at_jg == true %> &#10003;ジャングル　<% end %>
-                  <% if friend.bad_at_mid == true %> &#10003;ミッドレーン　<% end %>
-                  <% if friend.bad_at_adc == true %> &#10003;ボットレーン(ADC)　<% end %>
-                  <% if friend.bad_at_sup == true %> &#10003;サポート<% end %>
+                  <% if friend.bad_at_top == true %><%= image_tag asset_path("top.png"), size: "20x20", class: "me-1" %><span class="me-2">TOP</span><% end %>
+                  <% if friend.bad_at_jg == true %><%= image_tag asset_path("jg.png"), size: "20x20", class: "me-1" %><span class="me-2">JG</span><% end %>
+                  <% if friend.bad_at_mid == true %><%= image_tag asset_path("mid.png"), size: "20x20", class: "me-1" %><span class="me-2">MID</span><% end %>
+                  <% if friend.bad_at_adc == true %><%= image_tag asset_path("adc.png"), size: "20x20", class: "me-1" %><span class="me-2">ADC</span><% end %>
+                  <% if friend.bad_at_sup == true %><%= image_tag asset_path("sup.png"), size: "24x20", class: "me-1" %><span class="me-2">SUP</span><% end %>
                 </td>
               </tr>
               <tr>
