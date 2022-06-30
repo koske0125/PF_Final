@@ -9,24 +9,24 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">フレンド募集</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-friends me-1"></i>フレンド募集</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to "投稿一覧", public_friends_path, class: "dropdown-item" %></li>
-            <li><%= link_to "新規投稿", new_public_friend_path, class: "dropdown-item" %></li>
-            <li><%= link_to "投稿内容の編集・削除", new_public_friend_path, class: "dropdown-item" %></li>
+            <li><%= link_to public_friends_path, class: "dropdown-item" do %><i class="far fa-list-alt me-1"></i>投稿一覧<% end %></li>
+            <li><%= link_to new_public_friend_path, class: "dropdown-item" do %><i class="fas fa-plus-circle me-1"></i>新規投稿<% end %></li>
+            <li><%= link_to new_public_friend_path, class: "dropdown-item" do %><i class="fas fa-edit me-1"></i>投稿内容の編集・削除<% end %></li>
           </ul>
         </li>
 
         <li class="nav-item">
-          <%= link_to "コミュニティーボード", public_path, class: "nav-link" %>
+          <%= link_to public_path, class: "nav-link" do %><i class="fas fa-clipboard-list me-1"></i>コミュニティーボード<% end %>
         </li>
 
         <li class="nav-item">
-          <%= link_to "サークル", public_path, class: "nav-link" %>
+          <%= link_to public_path, class: "nav-link" do %><i class="fas fa-comments me-1"></i>サークル<% end %>
         </li>
       </ul>
 
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
         <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownuser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,28 +38,28 @@
             <%= current_user.name %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownuser">
-            <li><%= link_to "プロフィール", public_user_path(current_user), class: "dropdown-item" %></li>
-            <li><%= link_to "フォロー一覧", followings_public_user_path(current_user), class: "dropdown-item" %></li>
-            <li><%= link_to "フォロワー一覧", followers_public_user_path(current_user), class: "dropdown-item" %></li>
-            <li><%= link_to "ダイレクトメッセージ", "#", class: "dropdown-item" %></li>
+            <li><%= link_to public_user_path(current_user), class: "dropdown-item" do %><i class="fas fa-user me-1"></i>プロフィール<% end %></li>
+            <li><%= link_to followings_public_user_path(current_user), class: "dropdown-item" do %><i class="fas fa-user-friends me-1"></i>フォロー一覧<% end %></li>
+            <li><%= link_to followers_public_user_path(current_user), class: "dropdown-item" do %><i class="fas fa-users me-1"></i>フォロワー一覧<% end %></li>
+            <li><%= link_to "#", class: "dropdown-item" do %><i class="fas fa-envelope me-1"></i>ダイレクトメッセージ<% end %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            <li><%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %><i class="fas fa-sign-out-alt me-1"></i>サインアウト<% end %></li>
           </ul>
         </li>
         <% elsif admin_signed_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownuser" role="button" data-bs-toggle="dropdown" aria-expanded="false">管理者メニュー</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownuser">
-            <li><%= link_to "ユーザー一覧", admin_users_path, class: "dropdown-item" %></li>
-            <li><%= link_to "投稿一覧", admin_friends_path, class: "dropdown-item" %></li>
+            <li><%= link_to admin_users_path, class: "dropdown-item" do %><i class="fas fa-users me-1"></i>フォロワー一覧<% end %></li>
+            <li><%= link_to admin_friends_path, class: "dropdown-item" do %><i class="far fa-list-alt me-1"></i>投稿一覧<% end %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "サインアウト", destroy_admin_session_path, method: :delete, class: "dropdown-item" %></li>
+            <li><%= link_to destroy_admin_session_path, method: :delete, class: "dropdown-item" do %><i class="fas fa-sign-out-alt me-1"></i>サインアウト<% end %></li>
           </ul>
         </li>
         <% else %>
         <li class="nav-item">
-          <%= link_to "サインイン", new_user_session_path, class: "btn btn-outline-light me-2" %>
-          <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-outline-warning" %>
+          <%= link_to new_user_session_path, class: "btn btn-outline-light me-2" do %><i class="fas fa-sign-in-alt me-1"></i>サインイン<% end %>
+          <%= link_to new_user_registration_path, class: "btn btn-outline-warning" do %><i class="fas fa-user-plus me-1"></i>サインアップ<% end %>
         </li>
         <% end %>
       </ul>
