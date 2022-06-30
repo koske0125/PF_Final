@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <div class="col-12 col-md-8 col-lg-6 col-xl-6 mx-auto mt-3">
+    <h2 class="mt-3">投稿詳細</h2>
+    <table class="table">
+      <tr>
+        <th class="text-center">ユーザー名</th>
+        <td><%= render 'layouts/friend/user_name', friend: friend %>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-center">サモナーネーム</th>
+        <td><%= render 'layouts/friend/summoner_name', friend: friend %></td>
+      </tr>
+      <tr>
+        <th class="text-center">自己紹介</th>
+        <td><%= simple_format(friend.introduction) %></td>
+      </tr>
+      <tr>
+        <th class="text-center">ランク</th>
+        <td><%= render 'layouts/friend/rank', friend: friend %></td>
+      </tr>
+      <tr>
+        <th class="text-center">好きなチャンピオン</th>
+        <td><%= friend.favorite_champion %></td>
+      </tr>
+      <tr>
+        <th class="text-center">募集目的</th>
+        <td><%= render 'layouts/friend/purpose', friend: friend %></td>
+      </tr>
+      <tr>
+        <th class="text-center">得意なレーン</th>
+        <td><%= render 'layouts/friend/good_at_lane', friend: friend %></td>
+      </tr>
+      <tr>
+        <th class="text-center">苦手なレーン</th>
+        <td><%= render 'layouts/friend/bad_at_lane', friend: friend %></td>
+      </tr>
+      <tr>
+        <th class="text-center">活動時間帯</th>
+        <td><%= friend.active_time %></td>
+      </tr>
+      <tr>
+        <th class="text-center">Twitter</th>
+        <td><%= render 'layouts/friend/twitter', friend: friend %></td>
+      </tr>
+      <tr>
+        <th class="text-center">ボイスチャット</th>
+        <td><%= render 'layouts/friend/vc_status', friend: friend %></td>
+      </tr>
+      <tr>
+        <th class="text-center">利用可能なボイスチャット</th>
+        <td><%= render 'layouts/friend/vc_type', friend: friend %></td>
+      </tr>
+      <tr>
+        <th class="text-center">プロフィール更新日</th>
+        <td><%= friend.updated_at.strftime("%Y年%m月%d日") %></td>
+      </tr>
+    </table>
+    <div class="text-center">
+      <%= render 'layouts/friend/profile_show_footer', friend: friend %>
+    </div>
+  </div>
+
+</div>
