@@ -85,9 +85,9 @@
       <tr>
         <th>利用可能なボイスチャット</th>
         <td>
-          <% if @friend.vc_discord == true %><%= image_tag asset_path("discord.png"), size: "20x20", class: "me-1" %><span class="me-2">Discord</span><% end %>
-          <% if @friend.vc_skype == true %><%= image_tag asset_path("skype.png"), size: "20x20", class: "me-1" %><span class="me-2">Skype</span><% end %>
-          <% if @friend.vc_leaguevoice == true %><%= image_tag asset_path("lolvoice.png"), size: "20x20", class: "me-1" %><span class="me-2">リーグボイス</span><% end %>
+          <% if @friend.vc_discord == true %><i class="fab fa-discord me-1" style="color: #5865F2;"></i><span class="me-2">Discord</span><% end %>
+          <% if @friend.vc_skype == true %><i class="fab fa-skype me-1" style="color: #00aff0;"></i><span class="me-2">Skype</span><% end %>
+          <% if @friend.vc_leaguevoice == true %><i class="fas fa-microphone me-1"></i><span class="me-2">リーグボイス</span><% end %>
         </td>
       </tr>
     </table>
