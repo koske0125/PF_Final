@@ -1,0 +1,5 @@
+<% if friend.good_at_top == true %><%= image_tag asset_path("top.png"), size: "30x23", class: "me-1" %><span class="me-2">TOP</span><% end %>
+<% if friend.good_at_jg == true %><%= image_tag asset_path("jg.png"), size: "30x23", class: "me-1" %><span class="me-2">JG</span><% end %>
+<% if friend.good_at_mid == true %><%= image_tag asset_path("mid.png"), size: "30x23", class: "me-1" %><span class="me-2">MID</span><% end %>
+<% if friend.good_at_adc == true %><%= image_tag asset_path("adc.png"), size: "30x23", class: "me-1" %><span class="me-2">ADC</span><% end %>
+<% if friend.good_at_sup == true %><%= image_tag asset_path("sup.png"), size: "30x23", class: "me-1" %><span class="me-2">SUP</span><% end %>
