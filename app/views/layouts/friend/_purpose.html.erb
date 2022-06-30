@@ -1,0 +1,6 @@
+<% if friend.is_rank == true %><%= image_tag asset_path("friends/purpose/rank.png"), size: "30x23", class: "me-1" %><span class="me-2">ランク</span><% end %>
+<% if friend.is_normal == true %><%= image_tag asset_path("friends/purpose/normal.png"), size: "30x23", class: "me-1" %><span class="me-2">ノーマル</span><% end %>
+<% if friend.is_beginner == true %><%= image_tag asset_path("friends/purpose/beginner.png"), size: "30x23", class: "me-1" %><span class="me-2">初心者同士で遊びたい</span><% end %>
+<% if friend.is_coaching == true %><%= image_tag asset_path("friends/purpose/coaching.png"), size: "30x23", class: "me-1" %><span class="me-2">コーチングをしたい</span><% end %>
+<% if friend.is_coached == true %><%= image_tag asset_path("friends/purpose/coached.png"), size: "30x23", class: "me-1" %><span class="me-2">コーチングを受けたい</span><% end %>
+<% if friend.is_clash == true %><%= image_tag asset_path("friends/purpose/clash.png"), size: "30x23", class: "me-1" %><span class="me-2">Clash</span><% end %>

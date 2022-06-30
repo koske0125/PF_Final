@@ -6,12 +6,7 @@
       <tr>
         <th>ユーザー名</th>
         <td>
-          <% if @friend.user.profile_image.attached? %>
-            <%= image_tag @friend.user.profile_image, size: "64x64", class: "rounded-circle me-2" %>
-          <% else %>
-            <%= image_tag asset_path("no_image.jpg"), size: "64x64", class: "rounded-circle me-2" %>
-          <% end %>
-          <%= @friend.user.name %>
+          <%= render 'layouts/friend/user_name', friend: @friend %>
         </td>
       </tr>
       <tr>
@@ -42,12 +37,7 @@
       <tr>
         <th>募集目的</th>
         <td>
-          <% if @friend.is_rank == true %> &#10003;ランク　<% end %>
-          <% if @friend.is_normal == true %> &#10003;ノーマル　<% end %>
-          <% if @friend.is_beginner == true %> &#10003;初心者同士で遊びたい　<% end %>
-          <% if @friend.is_coaching == true %> &#10003;コーチングをしたい　<% end %>
-          <% if @friend.is_coached == true %> &#10003;コーチングを受けたい　<% end %>
-          <% if @friend.is_clash == true %> &#10003;Clashのメンバーを見つけたい<% end %>
+          <%= render 'layouts/friend/purpose', friend: @friend %>
         </td>
       </tr>
       <tr>

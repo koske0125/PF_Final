@@ -1,0 +1,11 @@
+<% if friend.user.is_published == "opened" %>
+  <i class="fas fa-lock-open me-1"></i><%= friend.user.summoner_name %>
+<% elsif friend.user.is_published == "limited" %>
+  <% if user_signed_in? && friend.user.is_followed_by?(current_user) && current_user.is_followed_by?(friend.user) %>
+    <i class="fas fa-lock-open me-1"></i><%= friend.user.summoner_name %>
+  <% else %>
+    <i class="fas fa-user-lock me-1"></i>相互フォローにのみ公開
+  <% end %>
+<% else %>
+  <i class="fas fa-lock me-1"></i>非公開
+<% end %>

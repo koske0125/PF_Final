@@ -1,0 +1,70 @@
+<div class="col">
+  <div class="card border-dark h-100">
+    <div class="card-body">
+      <h5 class="card-title"><%= render 'layouts/friend/user_name', friend: friend %></h5>
+      <p class="card-text ms-3"><%= friend.introduction.truncate(130) %></p>
+      <table class="table text-center">
+        <tr>
+          <th>サモナーネーム</th>
+          <td><%= render 'layouts/friend/summoner_name', friend: friend %></td>
+        </tr>
+        <tr>
+          <th>ランク</th>
+          <td><%= render 'layouts/friend/rank', friend: friend %></td>
+        </tr>
+        <tr>
+          <th>好きなチャンピオン</th>
+          <td><%= friend.favorite_champion %></td>
+        </tr>
+        <tr>
+          <th>募集目的</th>
+          <td><%= render 'layouts/friend/purpose', friend: friend %></td>
+        </tr>
+        <tr>
+          <th>得意なレーン</th>
+          <td><%= render 'layouts/friend/good_at_lane', friend: friend %></td>
+        </tr>
+        <tr>
+          <th>苦手なレーン</th>
+          <td><%= render 'layouts/friend/bad_at_lane', friend: friend %></td>
+        </tr>
+        <tr>
+          <th>活動時間帯</th>
+          <td><%= friend.active_time %></td>
+        </tr>
+        <tr>
+          <th>Twitter</th>
+          <td><%= render 'layouts/friend/twitter', friend: friend %></td>
+        </tr>
+        <tr>
+          <th>ボイスチャット</th>
+          <td><%= friend.vc_status_i18n %></td>
+        </tr>
+              <tr>
+                <th>利用可能なボイスチャット</th>
+                <td>
+                  <% if friend.vc_discord == true %><i class="fab fa-discord me-1" style="color: #5865F2;"></i><span class="me-2">Discord</span><% end %>
+                  <% if friend.vc_skype == true %><i class="fab fa-skype me-1" style="color: #00aff0;"></i><span class="me-2">Skype</span><% end %>
+                  <% if friend.vc_leaguevoice == true %><i class="fas fa-microphone me-1"></i><span class="me-2">リーグボイス</span><% end %>
+                </td>
+              </tr>
+            </table>
+            <p class="card-text text-center">
+            <% if user_signed_in? %>
+              <% if friend.user != current_user %>
+                <% if friend.user.is_followed_by?(current_user) %>
+                  <%= link_to "フォロー解除", public_user_relationships_path(friend.user),method: :delete, class: "btn btn-danger me-3" %>
+                <% else %>
+                  <%= link_to "フォローする", public_user_relationships_path(friend.user),method: :post, class: "btn btn-primary me-3" %>
+                <% end %>
+                <%= link_to "ダイレクトメッセージを送る", "#", class: "btn btn-success me-3" %>
+              <% end %>
+            <% end %>
+            <%= link_to "詳細を見る", public_friend_path(friend), class: "btn btn-info text-white" %>
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">最終更新日:<%= friend.updated_at.strftime("%Y年%m月%d日") %></small>
+          </div>
+        </div>
+      </div>

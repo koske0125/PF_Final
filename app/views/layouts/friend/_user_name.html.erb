@@ -1,0 +1,6 @@
+<% if friend.user.profile_image.attached? %>
+  <%= image_tag friend.user.profile_image, size: "50x50", class: "rounded-circle me-2" %>
+<% else %>
+  <%= image_tag asset_path("no_image.jpg"), size: "50x50", class: "rounded-circle me-2" %>
+<% end %>
+<%= friend.user.name %>
