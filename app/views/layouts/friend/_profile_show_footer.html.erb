@@ -2,7 +2,7 @@
 
     <% if friend.user != current_user %>
 
-      <%= render 'layouts/friend/follow_button', friend: friend %>
+      <span id="follow_button_<%= friend.id %>"><%= render 'layouts/friend/follow_button', friend: friend %></span>
       <%= link_to public_path, class: "btn btn-success me-3" do %><i class="fas fa-envelope me-1"></i>メッセージを送る<% end %>
 
     <% elsif friend.user == current_user %>
