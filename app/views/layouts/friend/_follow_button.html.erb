@@ -1,5 +1,5 @@
 <% if friend.user.is_followed_by?(current_user) %>
-  <%= link_to public_user_relationships_path(friend.user), method: :delete, class: "btn btn-danger me-3", remote: true do %><i class="fas fa-user-slash me-1"></i>フォロー解除<% end %>
+  <%= link_to public_user_relationships_path(friend.user), method: :delete, class: "btn btn-danger me-3" do %><i class="fas fa-user-slash me-1"></i>フォロー解除<% end %>
 <% else %>
-  <%= link_to public_user_relationships_path(friend.user), method: :post, class: "btn btn-primary me-3", remote: true do %><i class="fas fa-user-plus me-1"></i>フォロー<% end %>
+  <%= link_to public_user_relationships_path(friend.user), method: :post, class: "btn btn-primary me-3" do %><i class="fas fa-user-plus me-1"></i>フォロー<% end %>
 <% end %>
