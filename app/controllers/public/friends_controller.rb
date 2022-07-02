@@ -83,7 +83,7 @@ class Public::FriendsController < ApplicationController
   end
 
   def friend_search_params
-    params.fetch(:search, {}).permit(:rank, :is_rank, :is_normal, :is_beginner, :is_coaching, :is_coached, :is_clash, :good_at_top, :good_at_jg, :good_at_mid, :good_at_adc, :good_at_sup, :bad_at_top, :bad_at_jg, :bad_at_mid, :bad_at_adc, :bad_at_sup, :vc_status, :vc_discord, :vc_skype, :vc_leaguevoice, :sort_desc, :sort_asc)
+    params.fetch(:search, {}).permit(:rank, :is_rank, :is_normal, :is_beginner, :is_coaching, :is_coached, :is_clash, :good_at_top, :good_at_jg, :good_at_mid, :good_at_adc, :good_at_sup, :bad_at_top, :bad_at_jg, :bad_at_mid, :bad_at_adc, :bad_at_sup, :vc_status, :vc_discord, :vc_skype, :vc_leaguevoice, :sort_status)
   end
 
 end

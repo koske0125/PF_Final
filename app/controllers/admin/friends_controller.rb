@@ -26,8 +26,8 @@ class Admin::FriendsController < ApplicationController
   end
 
   def search
-    @q = Friend.ransack(params[:q])
-    @friends = @q.result(distinct: true)
+    @search_params = friend_search_params
+    @friends = Friend.search(@search_params)
   end
 
   def edit
