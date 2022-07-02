@@ -1,0 +1,13 @@
+<% if admin_signed_in? %>
+  <%= form_with scope: :search, url: search_admin_friends_path, method: :get do |f| %>
+<% else %>
+  <%= form_with scope: :search, url: search_public_friends_path, method: :get do |f| %>
+<% end %>
+
+<table class="table text-center">
+  <tr>
+    <th>ランク</th>
+    <td><%= f.select :rank, Friend.ranks.keys.map {|k| [I18n.t("enums.friend.ranks.#{k}"), k]}, {include_blank: '指定なし'}, class: "form-select" %></td>
+  </tr>
+
+</table>

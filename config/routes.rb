@@ -21,7 +21,11 @@ Rails.application.routes.draw do
     resources :direct_messages, only: [:show]
     resources :messages, only: [:create]
     resources :rooms, only: [:create, :index, :show]
-    resources :friends, only: [:index, :edit, :update, :destroy, :new, :create, :show]
+    resources :friends, only: [:index, :edit, :update, :destroy, :new, :create, :show] do
+      collection do
+        get :search
+      end
+    end
     resources :users, only: [:show, :edit, :update] do
       collection do
         get 'withdraw'
