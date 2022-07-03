@@ -84,7 +84,7 @@
           <tr>
             <th>並び替え</th>
             <td>
-              <%= f.radio_button :sort_status, "desc", class: "form-check-input" %>
+              <%= f.radio_button :sort_status, "desc", class: "form-check-input", checked: true %>
               <%= f.label "新着順", class: "form-check-label me-2" %>
               <%= f.radio_button :sort_status, "asc", class: "form-check-input" %>
               <%= f.label "投稿順", class: "form-check-label me-2" %>
