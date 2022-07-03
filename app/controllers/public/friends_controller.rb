@@ -2,27 +2,7 @@ class Public::FriendsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    if params[:search] #URLに:searchパラメータが含まれている場合の処理
-      @search = params[:search]
-      case @search #:searchパラメータの中身によって場合分け
-      when "is_rank" then
-        @friends = Friend.where(is_rank: true)
-      when "is_normal" then
-        @friends = Friend.where(is_normal: true)
-      when "is_beginner" then
-        @friends = Friend.where(is_beginner: true)
-      when "is_coaching" then
-        @friends = Friend.where(is_coaching: true)
-      when "is_coached" then
-        @friends = Friend.where(is_coached: true)
-      when "is_clash" then
-        @friends = Friend.where(is_clash: true)
-      else
-        @friends = Friend.all
-      end
-    else
-      @friends = Friend.all
-    end
+    @friends = Friend.all.order(updated_at: :desc)
   end
 
   def search
