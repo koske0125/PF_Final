@@ -1,6 +1,6 @@
 <% case friend.vc_status
   when "unavailable" then %><i class="fas fa-microphone-slash me-1"></i>
-  <% when "bronze" then %><i class="fas fa-headphones me-1"></i>
+  <% when "listening_only" then %><i class="fas fa-headphones me-1"></i>
   <% when "available" then %><i class="fas fa-microphone me-1"></i>
 <% end %>
 <%= friend.vc_status_i18n %>
