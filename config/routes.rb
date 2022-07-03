@@ -30,6 +30,13 @@ Rails.application.routes.draw do
         get :search
       end
     end
+    resources :contacts, only: [:new, :create] do
+      collection do
+        post 'confirm'
+        post 'back'
+        get 'complete'
+      end
+    end
     resources :users, only: [:show, :edit, :update] do
       collection do
         get 'withdraw'
