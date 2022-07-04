@@ -1,0 +1,5 @@
+<%= @contact.name %> 様 からのお問い合わせ<br />
+返信先：<%= @contact.email %><br />
+件名：<%= @contact.subject %><br />
+問い合わせ内容：<br />
+<%= simple_format(@contact.message) %>
