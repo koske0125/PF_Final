@@ -1,1 +1,1 @@
-<% if friend.twitter != " " %><i class="fab fa-twitter me-1", style="color: #00acee;"></i><a href="https://twitter.com/<%= friend.twitter.strip %>", target="_blank">@<%= friend.twitter.strip %></a><% end %>
+<% if friend.twitter.length != 0 %><i class="fab fa-twitter me-1", style="color: #00acee;"></i><a href="https://twitter.com/<%= friend.twitter.strip %>", target="_blank">@<%= friend.twitter.strip %></a><% end %>

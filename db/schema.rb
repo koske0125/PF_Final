@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_03_052340) do
+ActiveRecord::Schema.define(version: 2022_07_08_114204) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2022_07_03_052340) do
     t.boolean "bad_at_adc", default: false, null: false
     t.boolean "bad_at_sup", default: false, null: false
     t.string "active_time", default: " ", null: false
-    t.string "twitter", default: " ", null: false
+    t.string "twitter"
     t.integer "vc_status", default: 0, null: false
     t.boolean "vc_discord", default: false, null: false
     t.boolean "vc_skype", default: false, null: false
