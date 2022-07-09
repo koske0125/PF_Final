@@ -20,14 +20,10 @@ class Public::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
-      redirect_to complete_public_contacts_path
+      redirect_to public_path, success: "送信しました"
     else
       render "new"
     end
-  end
-
-  def complete
-    redirect_to public_path, success: "送信しました"
   end
 
   private
