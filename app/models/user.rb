@@ -19,9 +19,16 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :summoner_name, presence: true
   validates :is_published, presence: true
+  validate :profile_image_size
+
 
   def is_followed_by?(user)
     reverse_of_relationships.find_by(following_id: user.id).present?
   end
 
+  def profile_image_size
+    if profile_image.blob.byte_size > 5.megabytes
+      errors.add(:profile_image,"は5MB以内にしてください")
+    end
+  end
 end

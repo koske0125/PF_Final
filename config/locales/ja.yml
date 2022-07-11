@@ -47,3 +47,5 @@ ja:
         favorite_champion: "好きなチャンピオン"
         introduction: "自己紹介文"
         active_time: "活動時間帯"
+      user:
+        profile_image: "プロフィール画像"
