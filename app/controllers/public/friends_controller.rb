@@ -2,7 +2,7 @@ class Public::FriendsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   def index
-    @friends = Friend.all.order(updated_at: :desc)
+    @friends = Friend.all.order(updated_at: :desc).page(params[:page]).per(6)
   end
 
   def search

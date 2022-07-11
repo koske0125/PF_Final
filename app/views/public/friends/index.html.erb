@@ -10,5 +10,7 @@
         <%= render 'layouts/friend/profile_card', friend: friend %>
       <% end %>
     </div>
+
+    <%= paginate @friends %>
   </div>
 </div>

@@ -19,7 +19,9 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :summoner_name, presence: true
   validates :is_published, presence: true
-  validate :profile_image_size
+  # validate :profile_image_size 新規登録時にエラーが出るため、一時的に無効化
+
+
 
 
   def is_followed_by?(user)
@@ -31,4 +33,5 @@ class User < ApplicationRecord
       errors.add(:profile_image,"は5MB以内にしてください")
     end
   end
+
 end
