@@ -49,3 +49,6 @@ ja:
         active_time: "活動時間帯"
       user:
         profile_image: "プロフィール画像"
+      board:
+        title: "タイトル"
+        body: "本文"
