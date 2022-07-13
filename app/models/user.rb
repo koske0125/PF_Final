@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :following
   has_many :entries, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :boards, dependent: :destroy
 
   has_one_attached :profile_image
 
