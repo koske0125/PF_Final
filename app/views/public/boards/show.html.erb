@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="col-12 col-md-8 col-lg-6 col-xl-10 mx-auto mt-3">
+    <h2><%= @board.title %></h2>
+
+    <div class="card">
+      <h5 class="card-header">
+        <% if @board.user.profile_image.attached? %>
+          <%= image_tag @board.user.profile_image, size: "50x50", class: "rounded-circle me-2" %>
+        <% else %>
+          <%= image_tag asset_path("no_image.jpg"), size: "50x50", class: "rounded-circle me-2" %>
+        <% end %>
+        <%= @board.user.name %>
+      </h5>
+
+      <div class="card-body">
+        <p class="card-text"><%= simple_format(@board.body) %></p>
+        <% if @board.board_image.attached? %>
+          <%= link_to @board.board_image, target: "_blank" do %><%= image_tag @board.board_image, size: "200x200", class: "img-humbnail me-2" %><% end %>
+        <% end %>
+      </div>
+
+      <div class="card-footer">
+        <%= @board.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %>
+      </div>
+    </div>
+
+
+  </div>
+</div>
