@@ -18,6 +18,7 @@ class Public::BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @board_comments = @board.board_comments.page(params[:page]).per(20)
   end
 
   private
