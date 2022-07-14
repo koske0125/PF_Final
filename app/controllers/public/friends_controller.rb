@@ -7,7 +7,7 @@ class Public::FriendsController < ApplicationController
 
   def search
     @search_params = friend_search_params
-    @friends = Friend.search(@search_params)
+    @friends = Friend.search(@search_params).page(params[:page]).per(6)
   end
 
   def new
