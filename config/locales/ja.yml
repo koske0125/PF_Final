@@ -52,3 +52,5 @@ ja:
       board:
         title: "タイトル"
         body: "本文"
+      board_comment:
+        body: "本文"

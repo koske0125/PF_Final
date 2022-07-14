@@ -25,7 +25,7 @@
     </div>
 
     <% @board_comments.each do |comment| %>
-      <div class="card">
+      <div class="card mt-3">
         <h5 class="card-header">
           <% if comment.user.profile_image.attached? %>
             <%= image_tag comment.user.profile_image, size: "50x50", class: "rounded-circle me-2" %>
@@ -37,8 +37,8 @@
 
         <div class="card-body">
           <p class="card-text"><%= simple_format(comment.body) %></p>
-          <% if comment.board_comment_image.attached? %>
-            <%= link_to comment.board_comment_image, target: "_blank" do %><%= image_tag comment.board_comment_image, size: "200x200", class: "img-thumbnail me-2" %><% end %>
+          <% if comment.board_comments_image.attached? %>
+            <%= link_to comment.board_comments_image, target: "_blank" do %><%= image_tag comment.board_comments_image, size: "200x200", class: "img-thumbnail me-2" %><% end %>
           <% end %>
         </div>
 
@@ -49,6 +49,26 @@
     <% end %>
 
     <%= paginate @board_comments %>
+
+    <h2 class="mt-3">コメント</h2>
+    <%= form_with model: [@board,@board_comment], url: public_board_board_comments_path(@board), method: :post do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+
+    <div class="mb-3">
+      <%= f.label "本文", class: "form-label" %>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+
+    <div class="mb-3 mt-4">
+      <%= f.label "画像添付", class: "form-label" %>
+      <%= f.file_field :board_comments_image, accept: "image/*", class: "form-control" %>
+    </div>
+
+    <div class="actions text-center">
+      <%= f.submit "コメントする", class: "btn btn-success me-3" %>
+    </div>
+
+    <% end %>
 
 
   </div>
