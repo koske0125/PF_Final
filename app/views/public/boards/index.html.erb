@@ -7,7 +7,7 @@
         <tr>
           <th style="width: 50%">タイトル</th>
           <th>投稿者</th>
-          <th>レス数</th>
+          <th>コメント数</th>
           <th>投稿日時</th>
         </tr>
       </thead>
@@ -17,7 +17,7 @@
           <tr>
             <td><%= link_to public_board_path(board) do %><%= board.title %><% end %></td>
             <td><%= board.user.name %></td>
-            <td>ここにコメント数のカウントを追加</td>
+            <td><%= board.board_comments.count %>コメント</td>
             <td><%= board.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %></td>
           </tr>
         <% end %>

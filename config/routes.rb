@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     resources :rooms, only: [:create, :index, :show]
     resources :boards, only: [:index, :create, :show]
+      resources :board_comments, only: [:create]
     resources :friends, only: [:index, :edit, :update, :destroy, :new, :create, :show] do
       collection do
         get :search
