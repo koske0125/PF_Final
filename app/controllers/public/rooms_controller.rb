@@ -11,6 +11,7 @@ class Public::RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
+    @room.name = current_user.name
     @room.save
     redirect_to public_room_messages_path(@room)
   end
@@ -18,7 +19,7 @@ class Public::RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(user_ids: [])
+    params.permit(user_ids: [])
   end
 
 end
