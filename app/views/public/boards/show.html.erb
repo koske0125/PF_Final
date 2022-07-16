@@ -28,9 +28,9 @@
       <div class="card mt-3">
         <h5 class="card-header">
           <% if comment.user.profile_image.attached? %>
-            <%= image_tag comment.user.profile_image, size: "50x50", class: "rounded-circle me-2" %>
+            <%= image_tag comment.user.profile_image, size: "35x35", class: "rounded-circle me-2" %>
           <% else %>
-            <%= image_tag asset_path("no_image.jpg"), size: "50x50", class: "rounded-circle me-2" %>
+            <%= image_tag asset_path("no_image.jpg"), size: "35x35", class: "rounded-circle me-2" %>
           <% end %>
           <%= comment.user.name %>
         </h5>
