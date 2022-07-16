@@ -48,7 +48,7 @@
       </div>
     <% end %>
 
-    <%= paginate @board_comments %>
+    <div class="mt-3 d-flex justify-content-center"><%= paginate @board_comments %></div>
 
     <h2 class="mt-3">コメント</h2>
     <%= form_with model: [@board,@board_comment], url: public_board_board_comments_path(@board), method: :post do |f| %>
