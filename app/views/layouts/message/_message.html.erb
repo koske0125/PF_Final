@@ -1,0 +1,16 @@
+<% messages.each do |message| %>
+      <div class="card mt-3">
+        <div class="card-header">
+          <%= message.user.name %>
+        </div>
+        <div class="card-body">
+          <%= simple_format(message.body) %>
+          <% if message.message_image.attached? %>
+            <%= link_to message.message_image, target: "_blank" do %><%= image_tag message.message_image, size: "200x200", class: "img-thumbnail me-2" %><% end %>
+          <% end %>
+        </div>
+        <div class="card-footer">
+          <%= message.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %>
+        </div>
+      </div>
+    <% end %>
