@@ -3,7 +3,7 @@
     <% if friend.user != current_user %>
 
       <span id="follow_button_<%= friend.id %>"><%= render 'layouts/friend/follow_button', friend: friend %></span>
-      <%= link_to public_rooms_path(user_ids: [current_user.id, friend.user.id]), method: :post, class: "btn btn-success me-3" do %><i class="fas fa-envelope me-1"></i>メッセージを送る<% end %>
+      <%= link_to public_rooms_path(user_ids: [current_user.id, friend.user.id], partner_id: [friend.user.id]), method: :post, class: "btn btn-success me-3" do %><i class="fas fa-envelope me-1"></i>メッセージを送る<% end %>
 
     <% elsif friend.user == current_user %>
       <%= link_to edit_public_friend_path(friend), class: "btn btn-success me-3" do %><i class="fas fa-edit me-1"></i>編集する<% end %>
