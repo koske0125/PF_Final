@@ -10,9 +10,10 @@ class Public::MessagesController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     @message = @room.messages.new(message_params)
+    @messages = @room.messages
 
     if @message.save
-      redirect_to public_room_messages_path(@room)
+
     else
       @messages = @room.messages.includes(:user)
       render "index"
