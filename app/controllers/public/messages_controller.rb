@@ -22,7 +22,7 @@ class Public::MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:body).merge(user_id: current_user.id)
+    params.require(:message).permit(:body, :message_image).merge(user_id: current_user.id)
   end
 
 end
