@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_17_060057) do
+ActiveRecord::Schema.define(version: 2022_07_17_061108) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,15 @@ ActiveRecord::Schema.define(version: 2022_07_17_060057) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_boards_on_user_id"
+  end
+
+  create_table "club_members", force: :cascade do |t|
+    t.integer "club_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_club_members_on_club_id"
+    t.index ["user_id"], name: "index_club_members_on_user_id"
   end
 
   create_table "clubs", force: :cascade do |t|
@@ -175,6 +184,8 @@ ActiveRecord::Schema.define(version: 2022_07_17_060057) do
   add_foreign_key "board_comments", "boards"
   add_foreign_key "board_comments", "users"
   add_foreign_key "boards", "users"
+  add_foreign_key "club_members", "clubs"
+  add_foreign_key "club_members", "users"
   add_foreign_key "clubs", "users"
   add_foreign_key "entries", "rooms"
   add_foreign_key "entries", "users"
