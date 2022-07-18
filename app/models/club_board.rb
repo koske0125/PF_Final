@@ -1,0 +1,2 @@
+class ClubBoard < ApplicationRecord
+end
