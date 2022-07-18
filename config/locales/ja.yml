@@ -40,7 +40,8 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       blank: を入力してください
-      too_short: は%{count}文字以上で入力してください
+      too_short: は%{count}文字以上で入力してくださ
+      record_invalid: "バリデーションに失敗しました: %{errors}"
   activerecord:
     attributes:
       friend:

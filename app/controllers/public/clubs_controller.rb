@@ -10,6 +10,9 @@ class Public::ClubsController < ApplicationController
     @club = current_user.clubs.build(club_params)
     @clubs = Board.all.order(updated_at: :desc).page(params[:page]).per(20)
     if @club.save
+      @owner = @club.club_members.new
+      @owner.user_id = current_user.id
+      @owner.save
       redirect_to public_club_path(@club), success: "サークルを作成しました"
     else
       render "index"
