@@ -7,7 +7,7 @@ class Public::ClubBoardCommentsController < ApplicationController
     @club_board_comment = @club_board.club_board_comments.build(club_board_comments_params)
     @club_board_comment.user_id = current_user.id
 
-    if @club_board_comment.save!
+    if @club_board_comment.save
       redirect_to public_club_path(@club), success: "コメントを投稿しました"
     else
       render template: "public/club_boards/show"
