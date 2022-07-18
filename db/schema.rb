@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_18_064800) do
+ActiveRecord::Schema.define(version: 2022_07_18_071953) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(version: 2022_07_18_064800) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_boards_on_user_id"
+  end
+
+  create_table "club_board_comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "club_board_id", null: false
+    t.string "title", null: false
+    t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_board_id"], name: "index_club_board_comments_on_club_board_id"
+    t.index ["user_id"], name: "index_club_board_comments_on_user_id"
   end
 
   create_table "club_boards", force: :cascade do |t|
@@ -195,6 +206,8 @@ ActiveRecord::Schema.define(version: 2022_07_18_064800) do
   add_foreign_key "board_comments", "boards"
   add_foreign_key "board_comments", "users"
   add_foreign_key "boards", "users"
+  add_foreign_key "club_board_comments", "club_boards"
+  add_foreign_key "club_board_comments", "users"
   add_foreign_key "club_boards", "clubs"
   add_foreign_key "club_boards", "users"
   add_foreign_key "club_members", "clubs"

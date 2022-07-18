@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     get '/about' => "homes#about"
     resources :clubs do
       resources :club_members, only: [:create, :destroy]
-      resources :club_boards, only: [:create]
+      resources :club_boards, only: [:create, :show]
     end
     resources :rooms, only: [:create, :index, :new] do
       resources :messages

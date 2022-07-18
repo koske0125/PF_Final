@@ -1,0 +1,2 @@
+class ClubBoardComment < ApplicationRecord
+end

@@ -22,6 +22,8 @@ class Public::ClubsController < ApplicationController
   def show
     @club = Club.find(params[:id])
     @members = @club.club_members
+    @club_board = ClubBoard.new
+    @club_boards = @club.club_boards
   end
 
 
