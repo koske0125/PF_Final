@@ -51,7 +51,7 @@
     <div class="mt-3 d-flex justify-content-center"><%= paginate @club_board_comments %></div>
 
     <h2 class="mt-3">コメント</h2>
-    <%= form_with model: [@board,@board_comment], url: public_board_board_comments_path(@board), method: :post do |f| %>
+    <%= form_with model: [@club_board_comment], url: public_club_board_comments_path(id: @club_board.id), method: :post do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
 
     <div class="mb-3">
@@ -61,7 +61,7 @@
 
     <div class="mb-3 mt-4">
       <%= f.label "画像添付", class: "form-label" %>
-      <%= f.file_field :board_comments_image, accept: "image/*", class: "form-control" %>
+      <%= f.file_field :club_board_comments_image, accept: "image/*", class: "form-control" %>
     </div>
 
     <div class="actions text-center">

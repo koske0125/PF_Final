@@ -16,7 +16,7 @@
         </div>
       </div>
 
-    <h2>スレッド一覧</h2>
+    <h2 class="mt-2">スレッド一覧</h2>
     <% if member %>
       <table class="table">
         <tr>
@@ -29,7 +29,7 @@
           <tr>
             <td><%= link_to public_club_club_board_path(club_board) do %><%= club_board.title %><% end %></td>
             <td><%= club_board.user.name %></td>
-            <td></td>
+            <td><%= club_board.club_board_comments.count %>コメント</td>
             <td><%= club_board.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %></td>
           </tr>
         <% end %>

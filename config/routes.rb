@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       resources :club_members, only: [:create, :destroy]
       resources :club_boards, only: [:create, :show]
     end
+    resources :club_board_comments, only: [:create]
     resources :rooms, only: [:create, :index, :new] do
       resources :messages
     end

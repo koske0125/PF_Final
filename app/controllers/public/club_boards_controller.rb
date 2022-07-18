@@ -14,7 +14,9 @@ class Public::ClubBoardsController < ApplicationController
   end
 
   def show
-    @club_board = ClubBoard.find(params[:id])
+    @club_board = ClubBoard.find(params[:club_id])
+    @club_board_comments = @club_board.club_board_comments.page(params[:page]).per(10)
+    @club_board_comment = ClubBoardComment.new
   end
 
   private

@@ -1,0 +1,2 @@
+module Public::ClubBoardCommentsHelper
+end
