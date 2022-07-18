@@ -14,9 +14,9 @@ class User < ApplicationRecord
   has_many :entries
   has_many :rooms, through: :entries
   has_many :messages
-  has_many :clubs
-  has_many :club_members
-  has_many :club_board_comments
+  has_many :clubs, dependent: :destroy
+  has_many :club_members, dependent: :destroy
+  has_many :club_board_comments, dependent: :destroy
 
   has_one_attached :profile_image
 
