@@ -46,6 +46,7 @@
             <li><%= link_to followings_public_user_path(current_user), class: "dropdown-item" do %><i class="fas fa-user-friends me-1"></i>フォロー一覧<% end %></li>
             <li><%= link_to followers_public_user_path(current_user), class: "dropdown-item" do %><i class="fas fa-users me-1"></i>フォロワー一覧<% end %></li>
             <li><%= link_to public_rooms_path, class: "dropdown-item" do %><i class="fas fa-envelope me-1"></i>ダイレクトメッセージ<% end %></li>
+            <li><%= link_to clubs_public_users_path, class: "dropdown-item" do %><i class="fas fa-comments me-1"></i>マイサークル<% end %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %><i class="fas fa-sign-out-alt me-1"></i>サインアウト<% end %></li>
           </ul>

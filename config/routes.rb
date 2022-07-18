@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update] do
       collection do
         get 'withdraw'
+        get 'clubs'
       end
       resource :relationships, only: [:create, :destroy]
         get :followings, on: :member

@@ -39,6 +39,10 @@ class Public::UsersController < ApplicationController
     @users = user.followers
   end
 
+  def clubs
+    user = User.find(current_user.id)
+    @clubs = user.club_members
+  end
 
   private
 

@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="col-12 col-md-8 col-lg-6 col-xl-10 mx-auto mt-3">
+    <h2>マイサークル</h2>
+    <% @clubs.each do |club| %>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to public_club_path(club.club) do %><%= club.club.name %><% end %></h5>
+          <p class="card-text"><%= simple_format(club.club.introduction) %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
