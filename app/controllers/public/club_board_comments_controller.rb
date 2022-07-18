@@ -10,7 +10,7 @@ class Public::ClubBoardCommentsController < ApplicationController
     if @club_board_comment.save!
       redirect_to public_club_path(@club), success: "コメントを投稿しました"
     else
-      render "club_board#show"
+      render template: "public/club_boards/show"
     end
   end
 
