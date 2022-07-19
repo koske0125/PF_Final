@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   namespace :public, path: "" do
     get '/' => 'friends#index'
     get '/about' => "homes#about"
-    resources :clubs do
+    resources :clubs, except: [:new] do
       resources :club_members, only: [:create, :destroy]
       resources :club_boards, only: [:create, :show]
     end

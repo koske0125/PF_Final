@@ -26,6 +26,35 @@ class Public::ClubsController < ApplicationController
     @club_boards = @club.club_boards
   end
 
+  def edit
+    @club = Club.find(params[:id])
+    if @club.user = current_user
+      render "edit"
+    else
+      redirect_to public_club_path(@club), danger: "不正なアクセスです"
+    end
+  end
+
+  def update
+    @club = Club.find(params[:id])
+    if @club.user = current_user
+      @club.save(club_params)
+      redirect_to public_club_path(@club), success: "サークル情報を更新しました"
+    else
+      redirect_to public_club_path(@club), danger: "不正なアクセスです"
+    end
+  end
+
+  def destroy
+    @club = @Club.find(params[:id])
+    if @club.user = current_user
+      @club.destroy
+      redirect_to public_clubs_path, success: "サークルを削除しました"
+    else
+      redirect_to public_club_path(@club), danger: "不正なアクセスです"
+    end
+  end
+
 
 
   private
