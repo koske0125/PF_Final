@@ -1,5 +1,5 @@
 class Public::ClubsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
   def index
     @clubs = Club.all.order(updated_at: :desc).page(params[:page]).per(20)
@@ -8,7 +8,7 @@ class Public::ClubsController < ApplicationController
 
   def create
     @club = current_user.clubs.build(club_params)
-    @clubs = Board.all.order(updated_at: :desc).page(params[:page]).per(20)
+    @clubs = Club.all.order(updated_at: :desc).page(params[:page]).per(20)
     if @club.save
       @owner = @club.club_members.new
       @owner.user_id = current_user.id
