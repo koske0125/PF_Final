@@ -8,10 +8,13 @@
           <% if user_signed_in? %>
             <% member = ClubMember.find_by(user_id: current_user.id, club_id: @club.id) %>
             <% if member %>
-              <%= link_to "サークルを抜ける", public_club_club_member_path(@club), method: :delete, class: "btn btn-danger" %>
+              <%= link_to "サークルを抜ける", public_club_club_member_path(@club), method: :delete, class: "btn btn-danger me-3" %>
             <% else %>
               <%= link_to "サークルに入る", public_club_club_members_path(@club), method: :post, class: "btn btn-success" %>
             <% end %>
+          <% end %>
+          <% if user_signed_in? && @club.user == current_user %>
+            <%= link_to "サークル情報を編集する", edit_public_club_path(@club), class: "btn btn-success" %>
           <% end %>
         </div>
       </div>
