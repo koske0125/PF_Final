@@ -43,7 +43,6 @@ Rails.application.routes.draw do
       collection do
         post 'confirm'
         post 'back'
-        get 'complete'
       end
     end
     resources :users, only: [:show, :edit, :update] do
