@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
     resources :club_board_comments, only: [:create]
     resources :rooms, only: [:create, :index, :new] do
-      resources :messages
+      resources :messages, only: [:create, :index]
     end
     resources :boards, only: [:index, :create, :show] do
       resources :board_comments, only: [:create]
