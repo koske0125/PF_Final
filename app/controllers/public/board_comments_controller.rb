@@ -1,5 +1,5 @@
 class Public::BoardCommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!
 
   def create
     @board = Board.find(params[:board_id])

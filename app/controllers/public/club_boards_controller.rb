@@ -9,7 +9,7 @@ class Public::ClubBoardsController < ApplicationController
     if @club_board.save
       redirect_to public_club_path(@club), success: "スレッドを作成しました"
     else
-      render "club#show"
+      #バリデーション不適合時のエラー処理を追記予定
     end
   end
 
