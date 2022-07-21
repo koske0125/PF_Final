@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         get :search
       end
     end
+  resources :boards, except: [:new, :create]
   end
 
   #ユーザー側のルーティング
