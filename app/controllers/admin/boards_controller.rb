@@ -19,7 +19,9 @@ class Admin::BoardsController < ApplicationController
   end
 
   def destroy
-
+    @board = Board.find(params[:id])
+    @board.destroy
+    redirect_to admin_board_path, success: "ボードを削除しました"
   end
 
   private
