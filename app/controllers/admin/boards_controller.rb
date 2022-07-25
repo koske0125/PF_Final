@@ -15,13 +15,15 @@ class Admin::BoardsController < ApplicationController
   end
 
   def update
-
+    @board = Board.find(params[:id])
+    @board.update(bords_params)
+    redirect_to admin_board_path(@board), success: "ボードを編集しました"
   end
 
   def destroy
     @board = Board.find(params[:id])
     @board.destroy
-    redirect_to admin_board_path, success: "ボードを削除しました"
+    redirect_to admin_boards_path, success: "ボードを削除しました"
   end
 
   private
