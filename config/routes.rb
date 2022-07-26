@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       end
     end
   resources :boards, except: [:new, :create]
+  resources :messages, except: [:new, :create, :show]
   end
 
   #ユーザー側のルーティング

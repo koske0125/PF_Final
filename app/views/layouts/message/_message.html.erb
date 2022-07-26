@@ -8,6 +8,10 @@
           <% if message.message_image.attached? %>
             <%= link_to message.message_image, target: "_blank" do %><%= image_tag message.message_image, size: "200x200", class: "img-thumbnail me-2" %><% end %>
           <% end %>
+          <% if admin_signed_in? %>
+            <br><%= link_to "削除", admin_message_path(message), class: "btn btn-danger mt-1 me-2", method: :delete %>
+            <%= link_to "編集", edit_admin_message_path(message), class: "btn btn-success mt-1 me-2" %>
+          <% end %>
         </div>
         <div class="card-footer">
           <%= message.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %>

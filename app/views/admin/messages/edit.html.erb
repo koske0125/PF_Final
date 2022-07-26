@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="col-12 col-md-8 col-lg-6 col-xl-10 mx-auto mt-3">
+      <%= form_with model: @message, url: admin_message_path(@message), method: :patch do |f| %>
+      <%= f.text_area :body, class: "form-control" %>
+      <div class="mt-3">
+        <%= f.file_field :message_image, accept: "image/*", class: "form-control" %>
+      </div>
+      <div class="mt-3"><%= f.submit "送信", class: "btn btn-success" %></div>
+      <% end %>
+  </div>
+</div>
