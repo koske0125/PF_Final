@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
   resources :boards, except: [:new, :create]
   resources :messages, except: [:new, :create, :show]
+  resources :clubs, except: [:new, :create]
   end
 
   #ユーザー側のルーティング
