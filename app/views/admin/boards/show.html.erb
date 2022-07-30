@@ -41,7 +41,9 @@
           <p class="card-text"><%= simple_format(comment.body) %></p>
           <% if comment.board_comments_image.attached? %>
             <%= link_to comment.board_comments_image, target: "_blank" do %><%= image_tag comment.board_comments_image, size: "200x200", class: "img-thumbnail me-2" %><% end %>
-          <% end %>
+          <% end %><br />
+          <%= link_to "削除する", admin_board_comment_path(comment), class: "btn btn-danger mt-1 me-2", method: :delete, data: {confirm: "【確認】コメントを削除してもよろしいですか？" } %>
+          <%= link_to "編集する", edit_admin_board_comment_path(comment), class: "btn btn-success mt-1" %>
         </div>
 
         <div class="card-footer">

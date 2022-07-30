@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       end
     end
   resources :boards, except: [:new, :create]
+  resources :board_comments, only: [:edit, :update, :destroy]
   resources :messages, except: [:new, :create, :show]
   resources :clubs, except: [:new, :create]
   end
