@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="col-12 col-md-8 col-lg-6 col-xl-10 mx-auto mt-3">
+    <h2>サークル一覧</h2>
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th style="width: 50%">サークル名</th>
+          <th>オーナー</th>
+          <th>メンバー数</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @clubs.each do |club| %>
+          <tr>
+            <td><%= link_to admin_club_path(club) do %><%= club.name %><% end %></td>
+            <td><%= club.user.name %></td>
+            <td><%= club.club_members.count %>人</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= paginate @clubs %>
+
+  </div>
+</div>
