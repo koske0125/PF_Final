@@ -7,6 +7,8 @@ class Admin::ClubsController < ApplicationController
 
   def show
     @club = Club.find(params[:id])
+    @members = @club.club_members
+    @club_boards = @club.club_boards
   end
 
   def edit

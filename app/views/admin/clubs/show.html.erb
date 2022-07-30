@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <div class="col-12 col-md-8 col-lg-6 col-xl-10 mx-auto mt-3">
+    <h2><%= @club.name %></h2>
+
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text"><%= simple_format(@club.introduction) %></p>
+          <%= link_to "削除する", admin_club_path(@club), class: "btn btn-danger mt-1 me-2", method: :delete, data: { confirm: "【確認】投稿を削除してもよろしいですか？" } %>
+          <%= link_to "編集する", edit_admin_club_path(@club), class: "btn btn-success mt-1" %>
+        </div>
+      </div>
+
+    <h2 class="mt-2">スレッド一覧</h2>
+      <table class="table">
+        <tr>
+          <th>スレッド名</th>
+          <th>投稿者</th>
+          <th>コメント数</th>
+          <th>投稿日</th>
+        </tr>
+        <% @club_boards.each do |club_board| %>
+          <tr>
+            <td><%= link_to public_club_club_board_path(club_board) do %><%= club_board.title %><% end %></td>
+            <td><%= club_board.user.name %></td>
+            <td><%= club_board.club_board_comments.count %>コメント</td>
+            <td><%= club_board.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %></td>
+          </tr>
+        <% end %>
+      </table>
+
+    <h2>メンバー一覧</h2>
+    <table class="table text-center">
+      <tr>
+        <th>ユーザー名</th>
+        <th>フォロー</th>
+        <th>ダイレクトメッセージ</th>
+        <th>詳細ページ</th>
+      </tr>
+      <% @members.each do |member| %>
+      <tr>
+        <td><%= member.user.name %></td>
+        <% if member.user != current_user && user_signed_in? %>
+          <td>
+            <% if member.user.is_followed_by?(current_user) %>
+              <%= link_to "フォロー解除", public_user_relationships_path(member.user),method: :delete, class: "btn btn-danger me-3" %>
+            <% else %>
+              <%= link_to "フォローする", public_user_relationships_path(member.user),method: :post, class: "btn btn-primary me-3" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to public_rooms_path(user_ids: [current_user.id, member.user.id], partner_id: [member.user.id]), method: :post, class: "btn btn-success me-3" do %>メッセージを送る<% end %>
+          </td>
+        <% else %>
+          <td></td>
+          <td></td>
+        <% end %>
+        <td><% page = Friend.find_by(user_id: member.user.id) %><% if page %><%= link_to "詳細", public_friend_path(page), class: "btn btn-success" %><% end %></td>
+      </tr>
+      <% end %>
+    </table>
+
+  </div>
+</div>
