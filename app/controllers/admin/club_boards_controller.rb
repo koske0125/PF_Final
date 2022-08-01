@@ -11,25 +11,25 @@ class Admin::ClubBoardsController < ApplicationController
   end
 
   def edit
-    @board = Board.find(params[:id])
+    @board = ClubBoard.find(params[:id])
   end
 
   def update
-    @board = Board.find(params[:id])
-    @board.update(bords_params)
-    redirect_to admin_board_path(@board), success: "ボードを編集しました"
+    @board = ClubBoard.find(params[:id])
+    @board.update(club_boards_params)
+    redirect_to admin_club_board_path(@board), success: "ボードを編集しました"
   end
 
   def destroy
-    @board = Board.find(params[:id])
+    @board = ClubBoard.find(params[:id])
     @board.destroy
-    redirect_to admin_boards_path, success: "ボードを削除しました"
+    redirect_to admin_club_boards_path, success: "ボードを削除しました"
   end
 
   private
 
-  def bords_params
-    params.require(:board).permit(:title, :body, :board_image)
+  def club_boards_params
+    params.require(:club_board).permit(:title, :body, :club_board_image)
   end
 
 end

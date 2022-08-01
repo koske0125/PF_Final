@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :messages, except: [:new, :create, :show]
   resources :clubs, except: [:new, :create]
   resources :club_boards, except: [:new, :create]
+  resources :club_board_comments, onlu: [:edit, :update, :destroy]
   end
 
   #ユーザー側のルーティング
