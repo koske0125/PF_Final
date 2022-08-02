@@ -23,11 +23,11 @@
     <div class="mb-3">
       <%= f.label "サモナーネーム公開設定", class: "form-label" %><br />
       <%= f.radio_button :is_published, "closed", class: "form-check-input" %>
-      <%= f.label "非公開", class: "form-check-label" %>
+      <%= f.label :is_published, "非公開", value: "closed", class: "form-check-label" %>
       <%= f.radio_button :is_published, "limited", class: "form-check-input" %>
-      <%= f.label "相互フォローにのみ公開", class: "form-check-label" %>
+      <%= f.label :is_published, "相互フォローにのみ公開", value: "limited", class: "form-check-label" %>
       <%= f.radio_button :is_published, "opened", class: "form-check-input" %>
-      <%= f.label "全体に公開", class: "form-check-label" %>
+      <%= f.label :is_published, "全体に公開", value: "opened", class: "form-check-label" %>
     </div>
 
     <div class="mb-3">
@@ -38,17 +38,17 @@
     <div class="mb-3">
       <%= f.label "認証状況", class: "form-label" %><br />
       <%= f.radio_button :authenticate, false, class: "form-check-input" %>
-      <%= f.label "未認証", class: "form-check-label" %>
+      <%= f.label :authenticate, "未認証", value: "false", class: "form-check-label" %>
       <%= f.radio_button :authenticate, true, class: "form-check-input" %>
-      <%= f.label "認証済み", class: "form-check-label" %>
+      <%= f.label :authenticate, "認証済み", value: "true", class: "form-check-label" %>
     </div>
 
     <div class="mb-3">
       <%= f.label "退会ステータス", class: "form-label" %><br />
       <%= f.radio_button :is_deleted, false, class: "form-check-input" %>
-      <%= f.label "有効", class: "form-check-label" %>
+      <%= f.label :is_deleted, "有効", value: "false", class: "form-check-label" %>
       <%= f.radio_button :is_deleted, true, class: "form-check-input" %>
-      <%= f.label "退会済み", class: "form-check-label" %>
+      <%= f.label :is_deleted, "退会済み", value: "true", class: "form-check-label" %>
     </div>
 
     <div class="actions text-center">
