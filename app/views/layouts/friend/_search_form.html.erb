@@ -16,78 +16,78 @@
             <th>募集目的</th>
             <td>
               <%= f.check_box :is_rank, class: "form-check-input" %>
-              <%= f.label "ランク", class: "form-check-label me-2" %>
+              <%= f.label :is_rank, "ランク", class: "form-check-label me-2" %>
               <%= f.check_box :is_normal, class: "form-check-input" %>
-              <%= f.label "ノーマル", class: "form-check-label me-2" %>
+              <%= f.label :is_normal, "ノーマル", class: "form-check-label me-2" %>
               <%= f.check_box :is_beginner, class: "form-check-input" %>
-              <%= f.label "初心者同士で遊びたい", class: "form-check-label me-2" %>
+              <%= f.label :is_beginner, "初心者同士で遊びたい", class: "form-check-label me-2" %>
               <%= f.check_box :is_coaching, class: "form-check-input" %>
-              <%= f.label "コーチングをしたい", class: "form-check-label me-2" %>
+              <%= f.label :is_coaching, "コーチングをしたい", class: "form-check-label me-2" %>
               <%= f.check_box :is_coached, class: "form-check-input" %>
-              <%= f.label "コーチングを受けたい", class: "form-check-label me-2" %>
+              <%= f.label :is_coached, "コーチングを受けたい", class: "form-check-label me-2" %>
               <%= f.check_box :is_clash, class: "form-check-input" %>
-              <%= f.label "Clashのメンバーを見つけたい", class: "form-check-label" %>
+              <%= f.label :is_clash, "Clashのメンバーを見つけたい", class: "form-check-label" %>
             </td>
           </tr>
           <tr>
             <th>得意なレーン</th>
             <td>
               <%= f.check_box :good_at_top, class: "form-check-input" %>
-              <%= f.label "トップ", class: "form-check-label me-2" %>
+              <%= f.label :good_at_top, "トップ", class: "form-check-label me-2" %>
               <%= f.check_box :good_at_jg, class: "form-check-input" %>
-              <%= f.label "ジャングル", class: "form-check-label me-2" %>
+              <%= f.label :good_at_jg, "ジャングル", class: "form-check-label me-2" %>
               <%= f.check_box :good_at_mid, class: "form-check-input" %>
-              <%= f.label "ミッド", class: "form-check-label me-2" %>
+              <%= f.label :good_at_mid, "ミッド", class: "form-check-label me-2" %>
               <%= f.check_box :good_at_adc, class: "form-check-input" %>
-              <%= f.label "ボットレーン(ADC)", class: "form-check-label me-2" %>
+              <%= f.label :good_at_adc, "ボットレーン(ADC)", class: "form-check-label me-2" %>
               <%= f.check_box :good_at_sup, class: "form-check-input" %>
-              <%= f.label "サポート", class: "form-check-label" %>
+              <%= f.label :good_at_sup, "サポート", class: "form-check-label" %>
             </td>
           </tr>
           <tr>
             <th>苦手なレーン</th>
             <td>
               <%= f.check_box :bad_at_top, class: "form-check-input" %>
-              <%= f.label "トップ", class: "form-check-label me-2" %>
+              <%= f.label :bad_at_top, "トップ", class: "form-check-label me-2" %>
               <%= f.check_box :bad_at_jg, class: "form-check-input" %>
-              <%= f.label "ジャングル", class: "form-check-label me-2" %>
+              <%= f.label :bad_at_jg, "ジャングル", class: "form-check-label me-2" %>
               <%= f.check_box :bad_at_mid, class: "form-check-input" %>
-              <%= f.label "ミッド", class: "form-check-label me-2" %>
+              <%= f.label :bad_at_mid, "ミッド", class: "form-check-label me-2" %>
               <%= f.check_box :bad_at_adc, class: "form-check-input" %>
-              <%= f.label "ボットレーン(ADC)", class: "form-check-label me-2" %>
+              <%= f.label :bad_at_adc, "ボットレーン(ADC)", class: "form-check-label me-2" %>
               <%= f.check_box :bad_at_sup, class: "form-check-input" %>
-              <%= f.label "サポート", class: "form-check-label" %>
+              <%= f.label :bad_at_sup, "サポート", class: "form-check-label" %>
             </td>
           </tr>
           <tr>
             <th>ボイスチャット</th>
             <td>
               <%= f.radio_button :vc_status, "unavailable", class: "form-check-input" %>
-              <%= f.label "ボイスチャット不可", class: "form-check-label me-2" %>
+              <%= f.label :vc_status, "ボイスチャット不可", value: "unavailable", class: "form-check-label me-2" %>
               <%= f.radio_button :vc_status, "listening_only", class: "form-check-input" %>
-              <%= f.label "聴き専", class: "form-check-label me-2" %>
+              <%= f.label :vc_status, "聴き専", value: "listening_only", class: "form-check-label me-2" %>
               <%= f.radio_button :vc_status, "available", class: "form-check-input" %>
-              <%= f.label "ボイスチャット可能", class: "form-check-label me-2" %>
+              <%= f.label :vc_status, "ボイスチャット可能", value: "available", class: "form-check-label me-2" %>
             </td>
           </tr>
           <tr>
             <th>利用可能なボイスチャット</th>
             <td>
               <%= f.check_box :vc_discord, class: "form-check-input" %>
-              <%= f.label "Discord", class: "form-check-label me-2" %>
+              <%= f.label :vc_discord, "Discord", class: "form-check-label me-2" %>
               <%= f.check_box :vc_skype, class: "form-check-input" %>
-              <%= f.label "Skype", class: "form-check-label me-2" %>
+              <%= f.label :vc_skype, "Skype", class: "form-check-label me-2" %>
               <%= f.check_box :vc_leaguevoice, class: "form-check-input" %>
-              <%= f.label "リーグボイス", class: "form-check-label" %>
+              <%= f.label :vc_leaguevoice, "リーグボイス", class: "form-check-label" %>
             </td>
           </tr>
           <tr>
             <th>並び替え</th>
             <td>
               <%= f.radio_button :sort_status, "desc", class: "form-check-input", checked: true %>
-              <%= f.label "新着順", class: "form-check-label me-2" %>
+              <%= f.label :sort_status, "新着順", value: "desc", class: "form-check-label me-2" %>
               <%= f.radio_button :sort_status, "asc", class: "form-check-input" %>
-              <%= f.label "投稿順", class: "form-check-label me-2" %>
+              <%= f.label :sort_status, "投稿順", value: "asc", class: "form-check-label me-2" %>
             </td>
           </tr>
         </table>
