@@ -42,6 +42,7 @@ ja:
       blank: を入力してください
       too_short: は%{count}文字以上で入力してくださ
       record_invalid: "バリデーションに失敗しました: %{errors}"
+      invalid: "が正しくありません"
   activerecord:
     attributes:
       friend:
@@ -55,3 +56,16 @@ ja:
         body: "本文"
       board_comment:
         body: "本文"
+      club:
+        name: "サークル名"
+        introduction: "サークル紹介文"
+      club_board:
+        title: "スレッド名"
+        body: "本文"
+      club_board_comment:
+        boby: "本文"
+      contact:
+        name: "名前"
+        email: "メールアドレス"
+        subject: "件名"
+        message: "本文"
