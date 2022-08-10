@@ -52,7 +52,7 @@
 
       <% end %>
     <% else %>
-      投稿には<%= link_to "ユーザー登録", new_user_registration_path %>が必要です。
+      投稿には<%= link_to "ユーザー登録", new_user_registration_path %>が必要です。(登録済みの方は<%= link_to "サインイン", new_user_session_path %>）
     <% end %>
 
   </div>
