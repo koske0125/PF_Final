@@ -24,7 +24,7 @@ class Public::BoardsController < ApplicationController
 
   def destroy
     @board = Board.find(params[:id])
-    if @board.user_id = current_user.id
+    if @board.user_id == current_user.id
       @board.destroy
       redirect_to public_boards_path, success: "ボードを削除しました"
     else

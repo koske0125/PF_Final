@@ -41,7 +41,10 @@
         <div class="card-body">
           <p class="card-text"><%= simple_format(comment.body) %></p>
           <% if comment.board_comments_image.attached? %>
-            <%= link_to comment.board_comments_image, target: "_blank" do %><%= image_tag comment.board_comments_image, size: "200x200", class: "img-thumbnail me-2" %><% end %>
+            <%= link_to comment.board_comments_image, target: "_blank" do %><%= image_tag comment.board_comments_image, size: "200x200", class: "img-thumbnail me-2" %><% end %><br />
+          <% end %>
+          <% if comment.user_id == current_user.id %>
+            <%= link_to "削除する", public_board_board_comment_path(comment), method: :delete, class: "btn btn-danger" %>
           <% end %>
         </div>
 

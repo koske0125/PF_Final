@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:create, :index]
     end
     resources :boards, only: [:index, :create, :show, :destroy] do
-      resources :board_comments, only: [:create]
+      resources :board_comments, only: [:create, :destroy]
     end
     resources :friends do
       collection do

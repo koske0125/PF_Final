@@ -14,6 +14,17 @@ class Public::BoardCommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @board_comment = BoardComment.find(params[:board_id])
+    @board = @board_comment.board
+    if @board_comment.user_id == current_user.id
+      @board_comment.destroy
+      redirect_to public_board_path(@board), success: "コメントを削除しました"
+    else
+      redirect_to public_board_path(@board), danger: "不正な操作です"
+    end
+  end
+
   private
 
   def board_comment_params
