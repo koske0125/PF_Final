@@ -15,7 +15,10 @@
       <div class="card-body">
         <p class="card-text"><%= simple_format(@board.body) %></p>
         <% if @board.board_image.attached? %>
-          <%= link_to @board.board_image, target: "_blank" do %><%= image_tag @board.board_image, size: "200x200", class: "img-thumbnail me-2" %><% end %>
+          <%= link_to @board.board_image, target: "_blank" do %><%= image_tag @board.board_image, size: "200x200", class: "img-thumbnail me-2" %><% end %><br />
+        <% end %>
+        <% if @board.user_id == current_user.id %>
+          <%= link_to "削除する", public_board_path(@board), method: :delete, class: "btn btn-danger" %>
         <% end %>
       </div>
 

@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :rooms, only: [:create, :index, :new] do
       resources :messages, only: [:create, :index]
     end
-    resources :boards, only: [:index, :create, :show] do
+    resources :boards, only: [:index, :create, :show, :destroy] do
       resources :board_comments, only: [:create]
     end
     resources :friends do
