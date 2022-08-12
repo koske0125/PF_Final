@@ -25,6 +25,40 @@ class Public::UsersController < ApplicationController
   def withdraw
     @user = User.find(current_user.id)
     @user.update(is_deleted: true)
+    if @user.friend
+      @friend = @user.friend
+      @friend.destroy
+    end
+    if @user.boards
+      @boards = @user.boards
+      @boards.each do |board|
+        board.destroy
+      end
+    end
+    if @user.board_comments
+      @board_comments = @user.board_comments
+      @board_comments.each do |board_comment|
+        board_comment.destroy
+      end
+    end
+    if @user.clubs
+      @clubs = @user.clubs
+      @clubs.each do |club|
+        club.destroy
+      end
+    end
+    if @user.club_members
+      @club_members = @user.club_members
+      @club_members.each do |club_member|
+        club_member.destroy
+      end
+    end
+    if @user.club_boards
+      @club_boards = @user.club_boards
+      @club_boards.each do |club_board|
+        club_board.destroy
+      end
+    end
     reset_session
     redirect_to public_path, success: "退会処理を実行しました"
   end
