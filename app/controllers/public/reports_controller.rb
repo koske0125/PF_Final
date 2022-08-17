@@ -1,8 +1,9 @@
 class Public::ReportsController < ApplicationController
   def create
-    @report = Report.new
-    @report.save(report_params)
-    redirect_to :back, success: "報告が完了しました"
+    @report = Report.new(report_params)
+    @report.save
+    flash[:success] = '通報しました'
+    redirect_back(fallback_location: public_path)
   end
 
   private

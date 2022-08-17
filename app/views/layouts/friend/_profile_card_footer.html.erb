@@ -19,4 +19,11 @@
   <%= link_to admin_friend_path(friend), class: "btn btn-info text-white" do %><i class="fas fa-search me-1"></i>詳細を見る<% end %>
 <% else %>
   <%= link_to public_friend_path(friend), class: "btn btn-info text-white" do %><i class="fas fa-search me-1"></i>詳細を見る<% end %>
+  <% @report = Report.new %>
+  <%= form_with model: @report, url: public_reports_path(@report), method: :post do |f| %>
+  <%= f.hidden_field :genre, value: "1" %>
+  <%= f.hidden_field :address, value: "#{friend.id}" %>
+  <%= f.hidden_field :status, value: "1" %>
+  <%= f.submit "通報する", class: "btn btn-danger" %>
+  <% end %>
 <% end %>
